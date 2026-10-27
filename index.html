@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChillBrew | Premium Sweet Iced Tea</title>
+<meta name="description" content="ChillBrew serves premium sweet iced tea made from real tea leaves, brewed fresh daily with student-friendly prices.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { ink:'#2B1608', tea:'#F0891A', teadk:'#C46A0A', mint:'#CDEFE0', mintdk:'#1F8F67', ice:'#EAF7FB' },
+  fontFamily: { display:['"Bricolage Grotesque"','sans-serif'], sans:['"DM Sans"','sans-serif'] }
+}}}
+</script>
+<style>
+  body { background:#F7FCFD; color:#2B1608; }
+  a:focus-visible, button:focus-visible { outline:3px solid #1F8F67; outline-offset:3px; border-radius:8px; }
+  .blob { border-radius:42% 58% 55% 45% / 50% 45% 55% 50%; }
+  .float { animation:float 5s ease-in-out infinite; }
+  .float-slow { animation:float 6.5s ease-in-out -2s infinite; }
+  @keyframes float { 50% { transform:translateY(-16px) rotate(1.5deg); } }
+  .wa-btn { position:relative; }
+  .wa-btn::before, .wa-btn::after { content:""; position:absolute; inset:0; border-radius:9999px; border:2px solid #25D366; animation:ring 2.4s ease-out infinite; }
+  .wa-btn::after { animation-delay:1.2s; }
+  @keyframes ring { from { transform:scale(1); opacity:.7; } to { transform:scale(1.35); opacity:0; } }
+  .wa-btn i { animation:wiggle 2.4s ease-in-out infinite; display:inline-block; }
+  @keyframes wiggle { 0%,60%,100% { transform:rotate(0); } 70% { transform:rotate(-14deg); } 80% { transform:rotate(12deg); } 90% { transform:rotate(-8deg); } }
+  #nav.scrolled { box-shadow:0 6px 24px rgba(43,22,8,.08); background:rgba(255,255,255,.72); }
+  .size-btn[aria-pressed="true"] { background:#2B1608; color:#fff; }
+  @media (prefers-reduced-motion: reduce) {
+    .float, .float-slow, .wa-btn i { animation:none; }
+    .wa-btn::before, .wa-btn::after { display:none; }
+    html { scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden">
+
+<!-- NAVBAR -->
+<header id="nav" class="sticky top-0 z-50 bg-white/55 backdrop-blur-xl border-b border-white/60 transition-all duration-300">
+  <nav class="max-w-6xl mx-auto px-5 h-16 md:h-20 flex items-center justify-between" aria-label="Main Navigation">
+    <a href="#home" class="flex items-center gap-2" aria-label="ChillBrew, go to homepage">
+      <img src="logoesteh.png" data-logo alt="ChillBrew Logo" class="h-10 md:h-12 max-h-12 w-auto">
+      <span id="logoText" class="hidden font-display font-extrabold text-2xl">Chill<span class="text-tea">Brew</span></span>
+    </a>
+    <ul class="hidden md:flex items-center gap-8 font-medium">
+      <li><a href="#home" class="hover:text-tea transition">Home</a></li>
+      <li><a href="#features" class="hover:text-tea transition">Features</a></li>
+      <li><a href="#menu" class="hover:text-tea transition">Menu</a></li>
+      <li><a href="#order" class="px-5 py-2.5 rounded-full bg-ink text-white hover:bg-tea transition">Order</a></li>
+    </ul>
+    <button id="burger" class="md:hidden w-11 h-11 grid place-items-center rounded-full bg-white/70" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <i class="fa-solid fa-bars text-lg"></i>
+    </button>
+  </nav>
+  <div id="mobileMenu" class="hidden md:hidden px-5 pb-5">
+    <ul class="flex flex-col gap-1 font-medium bg-white/80 rounded-2xl p-3">
+      <li><a href="#home" class="block px-4 py-3 rounded-xl hover:bg-mint">Home</a></li>
+      <li><a href="#features" class="block px-4 py-3 rounded-xl hover:bg-mint">Features</a></li>
+      <li><a href="#menu" class="block px-4 py-3 rounded-xl hover:bg-mint">Menu</a></li>
+      <li><a href="#order" class="block px-4 py-3 rounded-xl bg-tea text-white text-center">Order</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section id="home" class="relative bg-ice">
+  <div class="max-w-6xl mx-auto px-5 pt-12 pb-20 md:pt-20 md:pb-28 grid lg:grid-cols-2 gap-14 items-center">
+    <div data-aos="fade-right">
+      <h1 class="font-display font-extrabold text-5xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight">Refreshingly loud.<br>Perfectly sweet.</h1>
+      <p class="mt-6 text-lg md:text-xl text-ink/75 max-w-md leading-relaxed">Real tea leaves brewed fresh every morning, poured over abundant ice. The perfect sweetness to boost your mood without the sugar crash.</p>
+      <div class="mt-9 flex flex-wrap gap-4">
+        <a href="#order" class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-tea text-white font-bold text-lg shadow-lg shadow-tea/30 hover:bg-teadk hover:-translate-y-0.5 transition">
+          Order Now <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="#menu" class="inline-flex items-center px-8 py-4 rounded-full bg-white font-bold text-lg border-2 border-ink/10 hover:border-mintdk transition">View Menu</a>
+      </div>
+    </div>
+    <div class="relative max-w-md w-full mx-auto" data-aos="fade-left" data-aos-delay="150">
+      <div class="absolute inset-0 rounded-full bg-mint scale-105"></div>
+      <div class="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-tea/90"></div>
+      <div class="float relative">
+        <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=80" alt="A glass of sweet iced tea with ice cubes and lemon slices" class="blob w-full aspect-square object-cover shadow-2xl">
+      </div>
+      <div class="float-slow absolute -left-3 bottom-10 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3">
+        <span class="w-10 h-10 rounded-full bg-mint grid place-items-center text-mintdk"><i class="fa-solid fa-mug-hot"></i></span>
+        <span class="text-sm font-bold leading-tight">Brewed fresh<br><span class="font-medium text-ink/60">this morning</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="max-w-6xl mx-auto px-5 py-20 md:py-28">
+  <div class="max-w-xl" data-aos="fade-up">
+    <h2 class="font-display font-extrabold text-4xl md:text-5xl tracking-tight">Why students keep coming back?</h2>
+    <p class="mt-4 text-lg text-ink/70">Great tea doesn't have to be complicated or expensive. Here is what we pour into every glass.</p>
+  </div>
+  <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+    <article class="rounded-3xl p-7 bg-tea/15 hover:-translate-y-1 transition" data-aos="fade-up">
+      <span class="w-14 h-14 rounded-2xl bg-tea text-white grid place-items-center text-2xl"><i class="fa-solid fa-leaf"></i></span>
+      <h3 class="mt-6 font-display font-bold text-2xl">100% Real Tea</h3>
+      <p class="mt-2 text-ink/70">No instant powders. We brew whole tea leaves so the flavor is rich, thick, and clean.</p>
+    </article>
+    <article class="rounded-3xl p-7 bg-mint hover:-translate-y-1 transition" data-aos="fade-up" data-aos-delay="100">
+      <span class="w-14 h-14 rounded-2xl bg-mintdk text-white grid place-items-center text-2xl"><i class="fa-solid fa-droplet"></i></span>
+      <h3 class="mt-6 font-display font-bold text-2xl">Perfect Sweetness</h3>
+      <p class="mt-2 text-ink/70">Carefully balanced sugar levels. Sweet on the tongue, but won't make you sleepy in class.</p>
+    </article>
+    <article class="rounded-3xl p-7 bg-white border border-ink/10 hover:-translate-y-1 transition" data-aos="fade-up" data-aos-delay="200">
+      <span class="w-14 h-14 rounded-2xl bg-ice text-mintdk grid place-items-center text-2xl"><i class="fa-solid fa-mug-hot"></i></span>
+      <h3 class="mt-6 font-display font-bold text-2xl">Freshly Brewed</h3>
+      <p class="mt-2 text-ink/70">Every batch is brewed in the morning and immediately chilled. Never reheated.</p>
+    </article>
+    <article class="rounded-3xl p-7 bg-ink text-white hover:-translate-y-1 transition" data-aos="fade-up" data-aos-delay="300">
+      <span class="w-14 h-14 rounded-2xl bg-tea text-white grid place-items-center text-2xl"><i class="fa-solid fa-wallet"></i></span>
+      <h3 class="mt-6 font-display font-bold text-2xl">Student-Friendly</h3>
+      <p class="mt-2 text-white/70">Premium taste at a price that respects your allowance. Keep your wallet happy.</p>
+    </article>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="bg-ice py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6" data-aos="fade-up">
+      <div class="max-w-xl">
+        <h2 class="font-display font-extrabold text-4xl md:text-5xl tracking-tight">Pick your favorite pour</h2>
+        <p class="mt-4 text-lg text-ink/70">Four signature variants. Choose your size, then order straight from the card.</p>
+      </div>
+      <div class="inline-flex p-1.5 rounded-full bg-white shadow-sm self-start" role="group" aria-label="Select glass size">
+        <button class="size-btn px-5 py-2.5 rounded-full font-bold text-sm transition" data-size="0" aria-pressed="true">Regular 16 oz</button>
+        <button class="size-btn px-5 py-2.5 rounded-full font-bold text-sm transition" data-size="1" aria-pressed="false">Jumbo 22 oz</button>
+      </div>
+    </div>
+    <div id="menuGrid" class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+  </div>
+</section>
+
+<!-- HOW TO ORDER -->
+<section id="order" class="max-w-6xl mx-auto px-5 py-20 md:py-28">
+  <div class="grid lg:grid-cols-2 gap-12 items-center">
+    <div data-aos="fade-right">
+      <h2 class="font-display font-extrabold text-4xl md:text-5xl tracking-tight">Getting your tea is easy</h2>
+      <p class="mt-4 text-lg text-ink/70 max-w-md">Drop by our booth, or let us bring it to you. Both are faster than your coffee break.</p>
+      <ul class="mt-9 space-y-6">
+        <li class="flex gap-4">
+          <span class="shrink-0 w-12 h-12 rounded-2xl bg-tea/15 text-teadk grid place-items-center text-xl"><i class="fa-solid fa-store"></i></span>
+          <div><h3 class="font-display font-bold text-xl">Campus Booth</h3><p class="text-ink/70">Find us near the main gate, Monday to Saturday, from 08:00 AM to 05:00 PM.</p></div>
+        </li>
+        <li class="flex gap-4">
+          <span class="shrink-0 w-12 h-12 rounded-2xl bg-mint text-mintdk grid place-items-center text-xl"><i class="fa-solid fa-motorcycle"></i></span>
+          <div><h3 class="font-display font-bold text-xl">Campus Delivery</h3><p class="text-ink/70">Send us your order via chat, and we will deliver it to your campus area in 20 minutes.</p></div>
+        </li>
+        <li class="flex gap-4">
+          <span class="shrink-0 w-12 h-12 rounded-2xl bg-ice text-mintdk grid place-items-center text-xl"><i class="fa-solid fa-people-group"></i></span>
+          <div><h3 class="font-display font-bold text-xl">Group Orders</h3><p class="text-ink/70">Having a study group or an event? Ask us for special pricing on orders of 10 cups or more.</p></div>
+        </li>
+      </ul>
+    </div>
+    <div class="rounded-[2.5rem] bg-mint p-8 sm:p-12 text-center" data-aos="zoom-in" data-aos-delay="100">
+      <span class="mx-auto w-16 h-16 rounded-full bg-white grid place-items-center text-3xl text-[#25D366] shadow"><i class="fa-brands fa-whatsapp"></i></span>
+      <h3 class="mt-6 font-display font-extrabold text-3xl">Order in one tap</h3>
+      <p class="mt-2 text-ink/70">Tell us your variant, size, and location. We will reply in minutes.</p>
+      <div class="mt-9 px-2">
+        <a id="waMain" href="#" target="_blank" rel="noopener" class="wa-btn inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-5 rounded-full bg-[#25D366] text-white font-bold text-xl shadow-xl hover:scale-105 transition-transform">
+          <i class="fa-brands fa-whatsapp text-3xl"></i> Order via WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-ink text-white">
+  <div class="max-w-6xl mx-auto px-5 py-14 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <p class="font-display font-extrabold text-3xl">EsTeh<span class="text-tea">Gacor</span></p>
+      <p class="mt-3 text-white/70 max-w-sm">Real tea, perfect sweetness, extra cold. Brewed fresh for students, creators, and busy hustlers.</p>
+    </div>
+    <div class="md:text-right">
+      <div class="flex md:justify-end gap-3" aria-label="Social Media">
+        <a href="#" aria-label="Instagram" class="w-11 h-11 rounded-full bg-white/10 grid place-items-center hover:bg-tea transition"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="TikTok" class="w-11 h-11 rounded-full bg-white/10 grid place-items-center hover:bg-tea transition"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#" aria-label="Facebook" class="w-11 h-11 rounded-full bg-white/10 grid place-items-center hover:bg-tea transition"><i class="fa-brands fa-facebook-f"></i></a>
+        <a id="waFoot" href="#" aria-label="WhatsApp" target="_blank" rel="noopener" class="w-11 h-11 rounded-full bg-white/10 grid place-items-center hover:bg-[#25D366] transition"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+      <p class="mt-5 text-sm text-white/50">&copy; <span id="year"></span> Es Teh Gacor. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.min.js"></script>
+<script>
+  // ---- Ubah nomor WhatsApp lu di sini ----
+  const CONFIG = { phone: '6281234567890' }; // kode negara + nomor, tanpa "+" atau spasi
+
+  const MENU = [
+    { name:'Classic Sweet Iced Tea', tag:'Best Seller', p:[5000, 7000], img:'photo-1556679343-c7306c1976bc',
+      desc:'Our signature black tea, brewed thick and sweetened perfectly over abundant ice.' },
+    { name:'Fresh Lemon Tea', tag:'Zesty', p:[7000, 9000], img:'photo-1499638673689-79a0b5115d87',
+      desc:'Sweet tea with real lemon slices. The sour-fresh kick will wake you right up.' },
+    { name:'Lychee Iced Tea', tag:'Fruity', p:[8000, 10000], img:'photo-1558160074-4d7d8bdf4256',
+      desc:'A blend of fragrant lychee and light jasmine tea. Smooth, juicy, and super refreshing.' },
+    { name:'Chilled Mint Tea', tag:'Extra Cold', p:[7000, 9000], img:'photo-1544145945-f90425340c7e',
+      desc:'Sweet green tea infused with fresh mint leaves for a clean, cooling sensation.' }
+  ];
+  const SIZES = ['Regular (16 oz)', 'Jumbo (22 oz)'];
+  let size = 0;
+
+  const wa = text => `https://wa.me/${CONFIG.phone}?text=${encodeURIComponent(text)}`;
+  const money = n => 'Rp ' + n.toLocaleString('id-ID');
+
+  function renderMenu() {
+    document.getElementById('menuGrid').innerHTML = MENU.map((m, i) => `
+      <article class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition flex flex-col" data-aos="fade-up" data-aos-delay="${i * 100}">
+        <div class="relative">
+          <img src="https://images.unsplash.com/${m.img}?auto=format&fit=crop&w=600&q=80" alt="${m.name}" loading="lazy" class="w-full h-52 object-cover">
+          <span class="absolute top-3 left-3 bg-white/90 backdrop-blur rounded-full px-3 py-1 text-sm font-bold">${m.tag}</span>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-display font-bold text-xl">${m.name}</h3>
+          <p class="mt-2 text-ink/70 text-[0.95rem] flex-1">${m.desc}</p>
+          <div class="mt-5 flex items-center justify-between gap-3">
+            <span class="font-display font-extrabold text-2xl text-teadk">${money(m.p[size])}</span>
+            <a href="${wa(`Hi ChillBrew! I want to order 1 ${m.name}, size ${SIZES[size]}.`)}" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-full bg-ink text-white text-sm font-bold hover:bg-tea transition">Order this</a>
+          </div>
+        </div>
+      </article>`).join('');
+  }
+
+  document.querySelectorAll('.size-btn').forEach(btn => btn.addEventListener('click', () => {
+    size = +btn.dataset.size;
+    document.querySelectorAll('.size-btn').forEach(b => b.setAttribute('aria-pressed', b === btn));
+    renderMenu();
+    AOS.refreshHard();
+  }));
+
+  renderMenu();
+  const hello = wa('Hi ChillBrew! I would like to order some iced tea.');
+  document.getElementById('waMain').href = hello;
+  document.getElementById('waFoot').href = hello;
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Navbar: shadow on scroll, mobile menu
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 10);
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+
+  const burger = document.getElementById('burger'), mobile = document.getElementById('mobileMenu');
+  const setMenu = open => {
+    mobile.classList.toggle('hidden', !open);
+    burger.setAttribute('aria-expanded', open);
+    burger.querySelector('i').className = open ? 'fa-solid fa-xmark text-lg' : 'fa-solid fa-bars text-lg';
+  };
+  burger.addEventListener('click', () => setMenu(mobile.classList.contains('hidden')));
+  mobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+  // Image fallback: if logo fails show text, if photos fail show placeholder
+  document.addEventListener('error', e => {
+    const t = e.target;
+    if (t.tagName !== 'IMG') return;
+    if (t.dataset.logo !== undefined) { t.style.display = 'none'; document.getElementById('logoText').classList.remove('hidden'); return; }
+    if (!t.dataset.failed) {
+      t.dataset.failed = 1;
+      t.src = "data:image/svg+xml," + encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='#CDEFE0'/><text x='200' y='235' font-size='120' text-anchor='middle'>🥤</text></svg>");
+    }
+  }, true);
+
+  AOS.init({ duration: 700, once: true, offset: 60, disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches });
+</script>
+</body>
+</html>
